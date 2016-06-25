@@ -1,0 +1,415 @@
+/*!
+ * Start Bootstrap - Landing Page Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+
+.topnav {
+    font-size: 14px; 
+}
+
+.lead {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.intro-header {
+    padding-top: 470px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../images/homeBanner.svg) no-repeat center center;
+    background-size:contain;
+}
+.intro-headerMain {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 30px;
+    text-align: center;
+    color: #f8f8f8;
+    border-bottom: 1px solid #ccc;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+.intro-message {
+    position: relative;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    background: url(../images/homeBanner23.svg) no-repeat center  ;
+}
+
+
+
+.intro-divider {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+
+.confHead{
+    margin: 30px 0 0 0;
+}
+.crud-actions a{
+    width:100%;
+    display:block;
+}
+#edit_container{
+    height:440px;
+    width:100%;
+    display: block;
+    overflow:scroll;
+    
+}
+.edit_container{
+    height:400px; 
+    display: block;
+    margin-bottom: 150px;
+}
+
+.fromText{
+    width:25%;
+    display: inline-block;
+}
+@font-face{
+    font-family: "exotic";
+    src : url("http://www.mylondonbeautysalon.co.uk/assets/fonts/EXOT350L.TTF") format("truetype");
+}
+.subNav{
+    margin:30px 0 0 0;
+    font-family: "exotic", Verdana, Tahoma; 
+    font-size:25px;
+    border-bottom: 1px sold #ccc;
+    -webkit-box-shadow: 0px 10px 25px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 25px -9px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 25px -9px rgba(0,0,0,0.75);
+    cursor: pointer;
+    
+}
+#topBx{
+    height:40px;
+    width:100%;
+    display: block;
+}
+.subNav:hover,.subNav:focus{
+    color:blueviolet;
+    
+}
+.inputField{
+    width:100%;
+    display:block;
+    border:1px solid #ccc;
+    background: #fff;
+    padding:5px;
+    margin:0 0 4px 0;
+}
+.post_images{
+    margin:0 auto!important;
+}
+.offer_list{
+    
+    border: 4px inset;
+    padding: 1.5%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.opPrice{
+    text-decoration: line-through;
+}
+@media(max-width:767px) {
+   
+    .intro-header {
+        padding:0;
+       margin-top:54px!important;
+       height:192px;
+       display:block!important;
+       
+    }
+    
+
+    ul.intro-social-buttons > li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.intro-social-buttons > li:last-child {
+        margin-bottom: 0;
+    }
+
+    .intro-divider {
+        width: 100%;
+    }
+}
+
+.network-name {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.content-section-a {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+.content-section-b {
+    padding: 0;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading-spacer {
+    float: left;
+    width: 200px;
+    border-top: 3px solid #e7e7e7;
+}
+
+.banner {
+    padding: 100px 0;
+    color: #f8f8f8;
+    background: url(../images/cover.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.banner h2 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 3em;
+}
+
+.banner ul {
+    margin-bottom: 0;
+}
+
+.banner-social-buttons {
+    float: right;
+    margin-top: 0;
+}
+
+@media(max-width:1199px) {
+    ul.banner-social-buttons {
+        float: left;
+        margin-top: 15px;
+    }
+}
+
+@media(max-width:767px) {
+    .banner h2 {
+        margin: 0;
+        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+        font-size: 3em;
+    }
+
+    ul.banner-social-buttons > li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.banner-social-buttons > li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+footer {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+p.copyright {
+    margin: 15px 0 0;
+}
+.servImg,.homeImg{
+    max-width: 100%;
+    display:inline-block;
+     border: 3px solid #fff;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    max-height: 250px;
+}
+.price{
+    text-decoration: line-through;
+}
+.content-section-a{
+    background: #fff;
+}
+.homImg{
+    border: 3px solid #fff;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+.container h2{
+    font-family: "exotic", Verdana, Tahoma; 
+    font-size:25px;
+}
+.formText{
+    width:120px;
+    display:inline-block;
+    text-align: left;
+}
+.grayLi{
+    background: #e7e7e7;
+}
+.list-inline-mobile{
+  display:none;
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;  
+}
+.list-inline-mobile > li {
+  display: none;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.subNav{
+    width: 300px;
+    display: inline-block;
+}
+.image_box a{
+    width:49%;
+    display:inline-block;
+}
+li.col-lg-12{
+    list-style: none;
+}
+.optime,.sessType,.opdescN,.opdescP,.opdescr,.opdescl,.optime,.sessType,.sesstype{
+    display: inline-block;
+    text-align:center; 
+    
+}
+.arrBx{
+    width:100%;
+    display:block;
+    border-bottom: 2px dotted #ccc;
+    background-repeat: repeat-x;
+}
+.opdescl{
+    text-align: left;
+    width: 25%;
+}
+
+.opdescr{
+    text-align: right;
+    width: 25%;
+}
+.optime{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.sessType,.sesstype{
+    text-align: right;
+}
+.opdescP{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.opdescN{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.opdesc{
+    padding-right: 4%;
+}
+.boxtitle{
+    font-size: larger;
+    background: #000;
+    color: #fff;
+    padding:4px;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+     .intro-header {
+    height: 187px!important;
+    display: block;
+    margin-top: 0;
+    /* padding-bottom: 50px; */
+    text-align: center;
+    color: #f8f8f8;
+    }
+    
+    ul.list-inline{
+        display:none;
+    }
+    .list-inline-mobile{
+        display:block;
+        padding-left: 0;
+        margin-left: -5px;
+        list-style: none;
+        margin-top: 117px;
+      }
+      .list-inline-mobile > li {
+        display: inline-block;
+        padding-right: 5px;
+        padding-left: 5px;
+      }
+      hr.intro-divider{
+          display:none;
+      }
+
+    .list-inline {
+      display:none;
+      padding-left: 0;
+      margin-left: -5px;
+      list-style: none;
+    }
+    .list-inline > li {
+      display: none;
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+    .subNav{
+        width: 100%;
+        display: block;
+    }
+    .intro-headerMain {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 30px;
+    text-align: center;
+    color: #f8f8f8;
+   
+    border-bottom: 1px solid #ccc;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+}

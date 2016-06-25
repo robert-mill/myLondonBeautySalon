@@ -1,0 +1,80 @@
+.content-slide2 h2{
+	font-size:18px;
+}
+.swiper-tabs{
+	height:500px;
+}
+.swiper-wrapper{
+		overflow-x: hidden;
+	    overflow-y: scroll;
+}
+.swiper-container {
+        width: 100%;
+}
+
+/* accordion */
+.accordion, .accordion * {
+    -webkit-box-sizing:border-box; 
+    -moz-box-sizing:border-box; 
+    box-sizing:border-box;
+}
+ 
+.accordion {
+    overflow:hidden;
+    box-shadow:0px 1px 3px rgba(0,0,0,0.25);
+    border-radius:3px;
+    background:#f7f7f7;
+}
+ 
+/*----- Section Titles -----*/
+
+.accordion-section-title {
+    width:100%;
+    padding:15px;
+    display:inline-block;
+    border-bottom:1px solid #1a1a1a;
+    background:#333;
+    transition:all linear 0.15s;
+    /* Type */
+    font-size:1.200em;
+    text-shadow:0px 1px 0px #1a1a1a;
+    color:#fff;
+}
+ 
+.accordion-section-title.active, .accordion-section-title:hover {
+    background:#4c4c4c;
+    /* Type */
+    text-decoration:none;
+}
+ 
+.accordion-section:last-child .accordion-section-title {
+    border-bottom:none;
+}
+ 
+/*----- Section Content -----*/
+.accordion-section-content {
+    padding:15px;
+    display:none;
+}
+
+ .demobar{
+            height: 90px;
+            line-height: 90px;
+ }
+.demobar .fleft{
+	float: left;
+	margin-left: 10px;
+}
+.demobar .fright{
+	float: right;
+	margin-top: 14px;
+	margin-right: 10px;
+}
+@media screen and (min-width:0px; max-width: 400px) {
+	width: 100%;
+	display:block;
+	.swiper-tabs .content-slide2 {
+		padding:0;
+		width:auto;
+	}
+}

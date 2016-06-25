@@ -1,0 +1,77 @@
+.subSection{
+	border:1px solid #4eb7d6;
+	padding:20px;
+	margin:0 0 20px 0;
+}
+.subSection p{
+	color:#000;
+}
+.priceBlock{
+	color:#000;
+	width:98%;
+	display:block;
+	border:1px solid #4eb7d6;
+	padding:1%;
+	margin:0 0 20px 0;
+	
+}
+.priceBlock div{
+	display:inline;
+	margin:0 3px 0 3px ;
+}
+.catPrice{
+	font-size:larger;
+	 text-decoration: line-through;
+}
+.catDiscPrice{
+	font-weight:bold;
+}
+.aside{
+	float:right;
+	border:1px solid #4eb7d6;
+	width:15%;
+	height:300px;
+	display:block;
+}
+.image_menu{
+	width:60%;
+	display:block;
+	
+	margin:0 auto;
+}
+.menu_img{
+	width:23%;
+	height:180px;
+	display:inline-block;
+	margin:0.2%;
+	padding:4px;
+	float:left;
+	border:1px solid #ccc;
+
+}
+.menu_img img{
+	width:100%;
+	display:block;
+}
+.menu_img_block{
+	height:115px;
+	display:block;
+}
+.menu_btn{
+	width:100%;
+	height:50px;
+	
+	display:block;
+	background:#4eb7d6;
+	color:#fff;
+	padding:5px;
+	margin: 5px 0 0 0;
+}
+.menu_btn:hover,.menu_btn:focus{
+	background:#3ca6c5;
+}
+.courseBlock{
+	width:100%;
+	display: block!important;
+    text-align: right;
+}

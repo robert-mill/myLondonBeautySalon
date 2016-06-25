@@ -1,0 +1,26 @@
+.col-md-12 .span12{
+	
+	display: block;
+    width: 100%!important;
+    margin: 0 auto!important;
+}
+.blah{
+    margin: 0 auto!important;
+    display: block;
+    width: 100%;
+}
+.blah .subSection{
+	float:initial;
+	padding: 20px;
+    width: 75%!important;
+	display: block!important;
+    margin: 0 auto 20px auto!important;
+}
+.addSpaceLeft{
+	margin: 0 30px 0 0;
+}
+.text-center{
+	width:80%;
+	margin:0 auto;
+	border:2px solid #4eb7d6;
+}
