@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://www.mylondonbeautysalon.co.uk/';
+$config['base_url'] = 'http://www.mywebsite.co.uk/';
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -315,7 +315,7 @@ $config['cache_query_string'] = FALSE;
 */
 $config['encryption_key'] = '';
 
-$config['google_key'] = 'AIzaSyCPrAn2U95XS2qUGbw8sS1lXJ6n50R64Zk';
+$config['google_key'] = 'xxx';
 
 /*
 |--------------------------------------------------------------------------

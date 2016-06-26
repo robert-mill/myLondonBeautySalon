@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mylondonbeautysalon.co.uk.mysql',
-	'username' => 'mylandonbeautys',
-	'password' => 'pGkTcd3m',
-	'database' => 'mylandonbeautys',
+	'hostname' => 'my_host',
+	'username' => 'my_user_name',
+	'password' => 'myPassword',
+	'database' => 'mmyDatabase',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
