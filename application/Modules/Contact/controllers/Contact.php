@@ -1,6 +1,9 @@
 <?php  if (! defined('BASEPATH')) exit('No direct script access allowed');
 class Contact extends MX_Controller{
-	function __construct() {
+
+    private $email;
+
+    function __construct() {
 		parent::__construct();
 	}
 	public function index(){
@@ -75,5 +78,70 @@ class Contact extends MX_Controller{
 		$query = $this->Mdl_contact->_custom_query($mysql_query);
 		return $query;
 	}
+        
+        function smail(){
+            
+           $dataIn = $this->get_data_from_post();
+           $data["query"] = $dataIn;
+            $message = $dataIn["message"];
+            $data["query"]["toName"] = "Cintia";
+            $to = $data["query"]["toEmail"] = "cintia@mylondonbeautysalon.co.uk";
+            $subject = $dataIn["subject"];
+            $fromEmail = $dataIn["fromEmail"];
+            $name = $dataIn["name"];
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            $headers .= "From: ". $name . " <" . $fromEmail . ">\r\n";
+            $headers .= 'Reply-To: ' . $fromEmail. "\r\n";
+            $headers .= 'X-Mailer: PHP/' . $fromEmail;
+            
+            
+            if(mail($to,$subject,$message,$headers)){
+                $data["query"]["sent"] = 1;
+                $data['module'] = "Contact";
+		$data['view_file'] = "responseToEmail";
+                echo Modules::run('Templates/main_page', $data);
+                
+                
+            }else{
+                
+                
+                echo 'oops an error has occured please try again in a moment';
+            }
+           
+           
+          /*     $this->load->library('email');
+
+            $name = $this->input->post('name');
+            $email = $this->input->post('email');
+           $message= $this->input->post('message');
+
+            $this->email->from($email, $name);
+            $this->email->to('you@domain.com');
+
+            $this->email->subject('Subject');
+            $this->email->message($message);
+            if($this->email->send())
+            {
+                echo $this->email->print_debugger();
+                //redirect('contact-us/thanks', 'location');
+            }
+           else
+           {
+            echo 'Something went wrong...';
+           }*/
+            
+            
+            
+            
+        }
+        function get_data_from_post(){
+           
+            $data['name'] =$this->input->post('name', TRUE);
+            $data['fromEmail'] =$this->input->post('fromEmail', TRUE);
+            $data['subject'] = $this->input->post('subject', TRUE);
+            $data['message'] = $this->input->post('message', TRUE);
+            return $data;
+    }
 
 }

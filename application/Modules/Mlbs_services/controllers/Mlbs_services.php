@@ -241,11 +241,12 @@ class Mlbs_services extends MX_Controller
        $config['upload_path']= "./assets/uploaded_images";
        $config['allowed_types']= 'jpg|jpeg|JPG|JPEG|PNG|png|gif|GIF';
        $delData = $this->get_data_from_db($dat["id"]);
+    if($delData["image"]){
        $this->load->helper("file");
        $path = "assets/uploaded_images/".$delData["image"];
        //unlink("assets/uploaded_images/".$delData["image"]);
        delete_files($path);
-       
+    }  
        $this->load->library("upload",$config);
        if(!$this->upload->do_upload()){
            $data['errors'] = array('error'=>$this->upload->display_errors());

@@ -17,7 +17,7 @@
         
        
         $prams =[];
-        setlocale(LC_MONETARY, 'en_GB.UTF-8');
+        setlocale(LC_MONETARY,"en_GB");
         $cid =$this->uri->segment(3);
         $collink =  isset($cid)?$cid:1;
         ?>
@@ -61,47 +61,54 @@
             }else{ 
                 if(($i%2)<1){
                     $i++;
-                    $areaBox = "<div class='col-lg-12 col-sm-6' style='border:1px solid #ccc;'>";
+                    $areaBox = "<div class='col-lg-12 col-sm-6' '>";
                     
                     
                     $areaBox .= "</div>";
-                    
-                    $optArrBox = "<div class='col-lg-12 col-sm-6' style='border:1px solid #ccc;'>";
-                     foreach ($optionArray as $optss):
-                       
+                   $optArrBox = "<div class='row-fluid'>";
+                      foreach ($optionArray as $optss):
                         if($optss['service_id_fk']==$row->id):
-                         $optArr[$row->id]= array(
-                             'description'=>$optss['description'],
-                             'price'=>$optss['price'],
-                             'promotional_price'=>$optss['promotional_price'] ,
-                         ); 
-                        $optArrBox = $optArrBox ."<span class='opdesc'>".$optArr[$row->id]['description'] ." </span>&nbsp;&nbsp;&nbsp;&nbsp; <span class='opPrice'> ".money_format("%n",$optArr[$row->id]['price'])."</span> <span class='opProPrice'>".money_format("%n",$optArr[$row->id]['promotional_price'])."</span><br>";
+                            $optArrBox =  $optArrBox ."<div class='row-fluid' >"; 
+                            $optArr[$row->id]= array(
+                                'description'=>$optss['description'],
+                                'price'=>$optss['price'],
+                                'promotional_price'=>$optss['promotional_price'] ,
+                            ); 
+                            if($optss['promotional_price']){
+                                $optArrBox = $optArrBox ."<span class='span4' style='width:47%; display:inline-block' >".$optArr[$row->id]['description'] ."</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class='span8'><span class='strikeOut'>".money_format("%n",$optArr[$row->id]['price'])."</span> <span >".money_format("%n",$optArr[$row->id]['promotional_price'])."</span></span>";
+                            }else{
+                                $optArrBox = $optArrBox ."<span class='span4' style='width:47%; display:inline-block'>".$optArr[$row->id]['description'] ."</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class='span8'><span>".money_format("%n",$optArr[$row->id]['price'])."</span> <span>".money_format("%n",$optArr[$row->id]['promotional_price'])."</span></span><br>";
+                            }
+                            $optArrBox =  $optArrBox. "</div>";
                         endif;
                     endforeach;
-                   $optArrBox =  $optArrBox. "</div>"; 
-                   
-                  $arrArrblk = "<div class='col-lg-12 col-sm-6' style='border:1px solid #ccc;'>";
-                   
-                   foreach ($arrArrass as $arrs):
-                        if($arrs['service_id_fk']==$row->id):
-                            $time ="";
-                            $isicp ="";
-                            $sessType="";
-                            $price="";
-                            $time = (isset($arrs["time"])&&$arrs["time"]!==null&&$arrs["time"]>0)?"<span class='optime'>".$arrs["time"]."mins</span> ":"";
-                            $isicp = (isset($arrs["promotional_price"])&&$arrs["promotional_price"]>0.00&&$arrs["promotional_price"]!="")?"<span class='opdescP'>now ".money_format("%n",$arrs["promotional_price"])."</span>":"";
-                            $sessType = (isset($arrs["sessiontype"])&&$arrs["sessiontype"]!="")?"<span class='sessType'>".$arrs["sessiontype"]."</span>":"";
-                            $price = (isset($arrs['price'])&&$arrs['price']>0.00&&$arrs['price']!="")?"<span class='opdescN'>".money_format("%n",$arrs['price'])."</span>":"";
-                            $text = (isset($arrs["text"])&&$arrs["text"]!=null)?"<span class=' opdescl'>".$arrs["text"]."</span> ":"";
-                            $priceStr = "<span class='pricewhole'>".$price.$isicp.$sessType."</span>"; 
-                            $arrArrblk = $arrArrblk . "<div class='row-fluid arrBx'>".$text.$time.$priceStr."  </div>" ; 
-                        endif;
-                   endforeach;
+                    $optArrBox =  $optArrBox. "</div>";
+                    $arrArrblk = "<div class='row-fluid' >";
+                        foreach ($arrArrass as $arrs):
+                             if($arrs['service_id_fk']==$row->id):
+                                 $time ="";
+                                 $isicp ="";
+                                 $sessType="";
+                                 $price="";
+                                 $time = (isset($arrs["time"])&&$arrs["time"]!==null&&$arrs["time"]>0)?"<span class='optime'>".$arrs["time"]."mins</span> ":"";
+                                 $isicp = (isset($arrs["promotional_price"])&&$arrs["promotional_price"]>0.00&&$arrs["promotional_price"]!="")?"<span class='opdescP'>now ".money_format("%n",$arrs["promotional_price"])."</span>":"";
+                                 $sessType = (isset($arrs["sessiontype"])&&$arrs["sessiontype"]!="")?"<span class='sessType'>".$arrs["sessiontype"]."</span>":"";
+                                 
+                                 if($isicp){
+                                   $price = (isset($arrs['price'])&&$arrs['price']>0.00&&$arrs['price']!="")?"<span class='opdescN strikeOut'>".money_format("%n",$arrs['price'])."</span>":"";
+                                   
+                                 }else{
+                                   $price = (isset($arrs['price'])&&$arrs['price']>0.00&&$arrs['price']!="")?"<span class='opdescN'>".money_format("%n",$arrs['price'])."</span>":"";
+                                   
+                                 }
+                                 
+                                 
+                                 $text = (isset($arrs["text"])&&$arrs["text"]!=null)?"<span  class='span6' >".$arrs["text"]."</span> ":"";
+                                 $priceStr = "<span class='span6'>".$price.$isicp.$sessType."</span>"; 
+                                 $arrArrblk = $arrArrblk . "<div class='row-fluid'>".$text.$time.$priceStr."  </div>" ;
+                             endif;
+                        endforeach;
                    $arrArrblk = $arrArrblk ."</div>"
-                           
-                           
-                   
-                   
                    
 ?>
                     <div class="content-section-a">
@@ -118,8 +125,9 @@
                                             $dprice = ($row->discount_price>0.01)?"<span class='discount_price'>Now ".money_format("%n",$row->discount_price)."</span>":"";
                                             echo "<div class='time_price'><p>".$timeStr." &nbsp;&nbsp;&nbsp; ".$mprice."&nbsp;&nbsp;".$dprice."</p></div>";
 
-                                            
+                                            echo "<br>";
                                             echo $arrArrblk;
+                                            echo "<br>";
                                             if(isset($optArr[$row->id])):
                                                 echo $optArrBox;
                                             endif;
@@ -138,36 +146,50 @@
 <?php               
                 }else{
                      $i=0;
-                     $optArrBox = "<div class='col-lg-12 col-sm-6' style='border:1px solid #ccc;'>";
+                     $optArrBox = "<div class='row-fluid'>";
                      foreach ($optionArray as $optss):
-                        if($optss['service_id_fk']==$row->id):
-                         $optArr[$row->id]= array(
-                             'description'=>$optss['description'],
-                             'price'=>$optss['price'],
-                             'promotional_price'=>$optss['promotional_price'] ,
-                         ); 
-                        $optArrBox = $optArrBox ."<span class='opdesc'>".$optArr[$row->id]['description'] ."</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class='opPrice'>".money_format("%n",$optArr[$row->id]['price'])."</span> <span class='opProPrice'>".money_format("%n",$optArr[$row->id]['promotional_price'])."</span><br>";
+                         if($optss['service_id_fk']==$row->id):
+                            $optArrBox =  $optArrBox ."<div class='row-fluid'>"; 
+                            $optArr[$row->id]= array(
+                                'description'=>$optss['description'],
+                                'price'=>$optss['price'],
+                                'promotional_price'=>$optss['promotional_price'] ,
+                            ); 
+                            if($optss['promotional_price']){
+                                $optArrBox = $optArrBox ."<span class='span4' style='width:47%; display:inline-block' >".$optArr[$row->id]['description'] ."</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class='span8'><span class='strikeOut'>".money_format("%n",$optArr[$row->id]['price'])."</span> <span >".money_format("%n",$optArr[$row->id]['promotional_price'])."</span></span>";
+                            }else{
+                                $optArrBox = $optArrBox ."<span class='span4' style='width:47%; display:inline-block'>".$optArr[$row->id]['description'] ."</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class='span8'><span>".money_format("%n",$optArr[$row->id]['price'])."</span> <span>".money_format("%n",$optArr[$row->id]['promotional_price'])."</span></span><br>";
+                            }
+                            $optArrBox =  $optArrBox. "</div>";
                         endif;
                     endforeach;
                      $optArrBox =  $optArrBox. "</div>";
                      
-                      $arrArrblk = "<div class='col-lg-12 col-sm-6' style='border:1px solid #ccc;'>";
-                   
-                   foreach ($arrArrass as $arrs):
-                        if($arrs['service_id_fk']==$row->id):
-                            $time ="";
-                            $isicp ="";
-                            $sessType="";
-                            $price="";
-                            $time = (isset($arrs["time"])&&$arrs["time"]!==null&&$arrs["time"]>0)?"<span class='optime'>".$arrs["time"]."mins</span> ":"";
-                            $isicp = (isset($arrs["promotional_price"])&&$arrs["promotional_price"]>0.00&&$arrs["promotional_price"]!="")?"<span class='opdescP'>now ".money_format("%n",$arrs["promotional_price"])."</span>":"";
-                            $sessType = (isset($arrs["sessiontype"])&&$arrs["sessiontype"]!="")?"<span class='sessType'>".$arrs["sessiontype"]."</span>":"";
-                            $price = (isset($arrs['price'])&&$arrs['price']>0.00&&$arrs['price']!="")?"<span class='opdescN'>".money_format("%n",$arrs['price'])."</span>":"";
-                            $text = (isset($arrs["text"])&&$arrs["text"]!=null)?"<span class=' opdescl'>".$arrs["text"]."</span> ":"";
-                            $priceStr = "<span class='pricewhole'>".$price.$isicp.$sessType."</span>"; 
-                            $arrArrblk = $arrArrblk . "<div class='row-fluid arrBx'>".$text.$time.$priceStr."  </div>" ;
-                        endif;
-                   endforeach;
+                    $arrArrblk = "<div class='row-fluid' >";
+                        foreach ($arrArrass as $arrs):
+                            $arrArrblk = $arrArrblk. "<div class='row-fluid' >";
+                            
+                             if($arrs['service_id_fk']==$row->id):
+                                 $time ="";
+                                 $isicp ="";
+                                 $sessType="";
+                                 $price="";
+                                 $time = (isset($arrs["time"])&&$arrs["time"]!==null&&$arrs["time"]>0)?"<span  class='span2'>".$arrs["time"]."mins</span> ":"";
+                                 $isicp = (isset($arrs["promotional_price"])&&$arrs["promotional_price"]>0.00&&$arrs["promotional_price"]!="")?"<span  class='span6'>now ".money_format("%n",$arrs["promotional_price"])."</span>":"";
+                                 $sessType = (isset($arrs["sessiontype"])&&$arrs["sessiontype"]!="")?"<span  class='span4'>".$arrs["sessiontype"]."</span>":"";
+                                 if($isicp){
+                                   $price = (isset($arrs['price'])&&$arrs['price']>0.00&&$arrs['price']!="")?"<span class='opdescN strikeOut'>".money_format("%n",$arrs['price'])."</span>":"";
+                                 }else{
+                                   $price = (isset($arrs['price'])&&$arrs['price']>0.00&&$arrs['price']!="")?"<span class='opdescN'>".money_format("%n",$arrs['price'])."</span>":"";
+                                   
+                                 }
+                                 $text = (isset($arrs["text"])&&$arrs["text"]!=null)?"<span  class='span4' style='width:45%; display:inline-block' >".$arrs["text"]."</span> ":"";
+                                 $priceStr = "<span class='span6'>".$price.$isicp.$sessType."</span>"; 
+                                 $arrArrblk = $arrArrblk . "<div class='row-fluid'>".$text.$time.$priceStr."</div>" ;
+                             endif;
+                             $arrArrblk = $arrArrblk ."</div>";
+                             
+                        endforeach;
                    $arrArrblk = $arrArrblk ."</div>"
                      
                      
@@ -186,7 +208,9 @@
                                             $dprice = ($row->discount_price>0.01)?"<span class='discount_price'>Now ".money_format("%n",$row->discount_price)."</span>":"";
                                             
                                             echo "<div class='time_price'><p>".$timeStr." &nbsp;&nbsp;&nbsp; ".$mprice."&nbsp;&nbsp;".$dprice."</p></div>";
-                                             echo $arrArrblk;
+                                            echo "<br>"; 
+                                            echo $arrArrblk;
+                                             echo "<br>";
                                             if(isset($optArr[$row->id])):
                                                 echo $optArrBox;
                                             endif;

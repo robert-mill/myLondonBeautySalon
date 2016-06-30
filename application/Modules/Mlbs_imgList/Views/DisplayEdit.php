@@ -68,11 +68,8 @@
                         echo '</div>';
                         echo '<div class="span5 col-lg-5 " style="border:1px solid #ccc;">';
                         echo img($imgArr); 
-                        echo "<p><span class='fromText'>image:</span>".form_hidden("image",$image)." ";
                         echo "<p><span class='fromText'>Price:</span>".form_input("price",$price)." ";
-                       
                         echo "<span class='fromText'>Discount Price:</span>".form_input("discount_price",$discount_price)."</p>";
-                         echo "<p><span class='fromText'>Time:</span>".form_input("time",$time)." ";
                         echo form_hidden("image",$image)." ";
                         echo '<p>Select/Change Image<input type="file" name="userfile" value="'.$image.'" /></p><div id="result_show"></div>';
                         if(isset($file_data)){
